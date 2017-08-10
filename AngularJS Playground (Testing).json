@@ -1,0 +1,27 @@
+[
+  {
+    "css": "body {\n  font-family: \"Open Sans\", sans-serif;\n}\n",
+    "cssMode": "css",
+    "externalLibs": {
+      "css": "",
+      "js": ""
+    },
+    "html": "<html>\n  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css\">\n  <link rel=\"stylesheet\" href=\"style.css\">\n\n  <body id=\"body\" ng-app=\"app\" layout=\"column\" layout-align=\"center\">\n    <div ng-controller=\"myController\" layout layout-align=\"center\">\n\n      <md-button>Hello, World.</md-button>\n\n    </div>\n  </body>  \n\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js\"></script>\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.js\"></script>\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.8/angular-messages.min.js\"></script>\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-aria.min.js\"></script>\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js\"></script>\n  \n  <script src=\"app.js\"></script>\n</html>\n\n",
+    "htmlMode": "html",
+    "id": "item-alrsN4uDM9",
+    "js": "console.clear();\n\n(function(){\n\n  angular.module(\"app\", ['ngMaterial'])\n\n    .controller(\"myController\", [MyController])\n  ;\n\n  function MyController() {\n    var vm = this;\n\n    debugger\n  }\n\n\n})();\n",
+    "jsMode": "js",
+    "layoutMode": 1,
+    "mainSizes": [
+      50,
+      50
+    ],
+    "sizes": [
+      33.33,
+      33.33,
+      33.33
+    ],
+    "title": "AngularJS Playground (Testing)",
+    "updatedOn": 1501829042114
+  }
+]
