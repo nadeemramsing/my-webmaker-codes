@@ -2,14 +2,12 @@ var WebSocketServer = require('ws').Server,
     app = require('express')(),
     bodyparser = require('body-parser'),
     cors = require('cors'),
-    socket = require('socket.io');
+    io = require('socket.io');
 
 app.use(bodyparser.urlencoded({
     extended: false
 }));
-
 app.use(bodyparser.json());
-
 app.use(cors());
 
 var port = 4444;
@@ -19,41 +17,17 @@ var server = app.listen(port, function () {
     console.log("Server is listening on port: ", port);
 });
 
-var io = socket(server);
+io = io.listen(server);
 
-//method 2
-//OR
-/* 
-var io = socket();
-io.listen(port, function () {
-    console.log("Server is listening on port: ", port);
-}));
-*/
-
-io.on('connection', function (client) {
-    debugger;
-    console.log("Client connected.");
-
-    client.on('event', function (data) {
-        debugger;
-    });
-
-    client.on('disconnect', function (data) {
-        debugger;
-        console.log("Client disconnected.");
+io.on('connection', function (socket) {
+    socket.on('message', function (from, message) {
+        console.log('recieved message from', from, 'message', JSON.stringify(message));
+        console.log('broadcasting message');
+        console.log('payload is', message);
+        io.sockets.emit('broadcast', {
+            payload: message,
+            source: from
+        });
+        console.log('broadcast complete');
     });
 });
-
-//var ws = new WebSocket('ws://localhost:4445');
-/* var wss = new WebSocketServer({
-    port: 4445
-});
-
-wss.on('connection', function (ws) {
-    console.log('Connection opened.');
-    ws.send('Connection opened.');
-});
-
-wss.on('message', function (incomingData) {
-    console.log('Incoming data: ', incomingData);
-}); */
